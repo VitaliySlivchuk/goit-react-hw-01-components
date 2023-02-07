@@ -1,0 +1,11 @@
+.item > td {
+  padding: 16px 20px;
+  width: 165.5px;
+  height: 51px;
+  border: 1px solid #b9b9b9;
+  text-align: center;
+  font-size: 14px;
+}
+f {
+  flex-wrap: wrap;
+}

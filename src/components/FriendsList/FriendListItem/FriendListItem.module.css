@@ -1,0 +1,22 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  border: 1px solid black;
+}
+.online {
+  background-color: var(--color-online);
+}
+.offline {
+  background-color: var(--color-offline);
+}
