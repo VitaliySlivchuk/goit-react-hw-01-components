@@ -5,7 +5,6 @@ import { StatisticsStatsItem } from './StatisticsStatsItem/StatisticsStatsItem';
 import { ListCss } from 'components/Statistics/StatisticsStats/StatisticsStats.styled';
 
 export const StatisticsStats = ({ stats }) => {
-  //   console.log(stats);
   return (
     <ListCss className="stat-list">
       {stats.map(({ id, label, percentage }) => {

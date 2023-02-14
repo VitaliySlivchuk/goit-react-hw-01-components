@@ -2,19 +2,19 @@ import PropTypes from 'prop-types';
 
 import { StatisticsTitle } from 'components/Statistics/StatisticsTitle/StatisticsTitle';
 import { StatisticsStats } from './StatisticsStats/StatisticsStats';
-import data from '../../json/data.json';
 
 import { StatisticsCss } from 'components/Statistics/Statistics.styled';
 
-export const Statistics = () => {
+export const Statistics = ({ text, stats }) => {
   return (
     <StatisticsCss className="statistics">
-      <StatisticsTitle text="Upload stats" />
-      <StatisticsStats stats={data} />
+      <StatisticsTitle text={text} />
+      <StatisticsStats stats={stats} />
     </StatisticsCss>
   );
 };
 
-StatisticsTitle.propTypes = {
+Statistics.propTypes = {
   text: PropTypes.string,
+  stats: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };

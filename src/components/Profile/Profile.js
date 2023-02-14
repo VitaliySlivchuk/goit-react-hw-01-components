@@ -1,28 +1,44 @@
 import PropTypes from 'prop-types';
 
-import { Description } from './Description/Description';
+import {
+  ProfileCss,
+  ImgCss,
+  DescriptionCss,
+  NameCss,
+  TagCss,
+  LocationCss,
+  StatsCss,
+  StatsElCss,
+  StatsLable,
+  StatsQunty,
+} from './Profile.styled';
 
-import { Stats } from './Stats/Stats';
-import { ProfileCss } from './Profile.styled';
-
-import props from '../../json/user.json';
-
-export const Profile = () => {
+export const Profile = ({ username, tag, location, avatar, stats }) => {
+  const statsArr = Object.entries(stats);
   return (
-    <ProfileCss>
-      <Description
-        username={props.username}
-        tag={props.tag}
-        location={props.location}
-        avatar={props.avatar}
-        stats={props.stats}
-      />
-      <Stats stats={props.stats} />
+    <ProfileCss className="profile">
+      <DescriptionCss className="description">
+        <ImgCss src={avatar} alt={username} className="avatar" />
+        <NameCss className="name">{username}</NameCss>
+        <TagCss className="tag">@{tag}</TagCss>
+        <LocationCss className="location">{location}</LocationCss>
+      </DescriptionCss>
+
+      <StatsCss className="stats">
+        {statsArr.map(el => {
+          return (
+            <StatsElCss key={el[0]}>
+              <StatsLable className="label">{el[0]}</StatsLable>
+              <StatsQunty className="quantity">{el[1]}</StatsQunty>
+            </StatsElCss>
+          );
+        })}
+      </StatsCss>
     </ProfileCss>
   );
 };
 
-Description.propTypes = {
+Profile.propTypes = {
   username: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
